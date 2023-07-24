@@ -1,0 +1,21 @@
+name: dart_decimal_number_parser
+description: "`NumberParser` implementation for `Decimal`s"
+version: 1.0.0
+repository: https://github.com/anqit/dart_decimal_number_parser
+
+environment:
+  sdk: ^3.0.5
+
+# Add regular dependencies here.
+dependencies:
+  decimal: ^2.3.2
+  intl:
+    git:
+      url: git@github.com:anqit/dart-i18n.git
+      path: pkgs/intl/
+      ref: generalize_number_parsing
+  # path: ^1.8.0
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0
