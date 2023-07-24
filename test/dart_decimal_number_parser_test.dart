@@ -26,4 +26,24 @@ void main() {
       expect(parse(currencyFormatter, "-\$3.14"), equals(-rationalPi));
     });
   });
+
+  group('Use custom parser syntax', () {
+    final parserGenerator = DartDecimalNumberParser.new;
+    group('Parses plain decimals', () {
+
+      test('Can parse plain decimal', () {
+        expect(plainFormatter.parseWith("3.14", parserGenerator), equals(rationalPi));
+        expect(plainFormatter.parseWith("03.14", parserGenerator), equals(rationalPi));
+        expect(plainFormatter.parseWith("-3.14", parserGenerator), equals(-rationalPi));
+      });
+    });
+
+    group('Parses currency decimals', () {
+      test('Can parse currencies decimal', () {
+        expect(currencyFormatter.parseWith("\$3.14", parserGenerator), equals(rationalPi));
+        expect(currencyFormatter.parseWith("\$03.14", parserGenerator), equals(rationalPi));
+        expect(currencyFormatter.parseWith("-\$3.14", parserGenerator), equals(-rationalPi));
+      });
+    });
+  });
 }

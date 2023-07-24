@@ -5,7 +5,7 @@ class DartDecimalNumberParser extends NumberParserBase<Decimal?> {
   DartDecimalNumberParser(super.format, super.text);
 
   @override
-  Decimal? fromNormalized(String normalizedText) => Decimal.parse(normalizedText);
+  Decimal? fromNormalized(String normalizedText) => Decimal.tryParse(normalizedText);
 
   @override
   Decimal? nan() => null;
